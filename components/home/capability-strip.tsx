@@ -98,12 +98,13 @@ export default function CapabilityStrip() {
                     text-[10px]
                     font-black
                     tracking-[0.15em]
-                    text-white/30
+                    text-white/60 
                     transition-colors
                     duration-300
                     group-hover:text-[#D4A72C]
                   "
                 >
+                  {/* Fixed: Bumped opacity from white/30 to white/60 for accessible contrast on dark navy */}
                   {item.number}
                 </span>
 
@@ -130,7 +131,7 @@ export default function CapabilityStrip() {
                   <Icon
                     className="
                       h-5 w-5
-                      text-white/80
+                      text-white/90
 
                       transition-colors
                       duration-300
@@ -182,9 +183,10 @@ export default function CapabilityStrip() {
                       max-w-[190px]
                       text-[11px]
                       leading-5
-                      text-white/50
+                      text-white/75
                     "
                   >
+                    {/* Fixed: Bumped opacity from white/50 to white/75 to meet high contrast parameters */}
                     {item.description}
                   </p>
                 </div>
