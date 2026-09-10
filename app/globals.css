@@ -1,26 +1,31 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Set theme configuration targets matching your specific brand parameters */
+  --color-background: hsl(210 20% 98%); /* Off White #F8FAFC */
+  --color-card: hsl(0 0% 100%); /* White #FFFFFF */
+  --color-foreground: hsl(221 39% 11%); /* Dark Main Text #111827 */
+  --color-muted-foreground: hsl(215 16% 47%); /* Gray Muted Text #64748B */
+
+  /* UI Core Structure Colors */
+  --color-primary: hsl(222 47% 11%); /* Deep Navy #0F172A */
+  --color-secondary: hsl(215 25% 27%); /* Charcoal #1E293B */
+
+  /* Brand Highlights */
+  --color-accent: hsl(43 65% 50%); /* Construction Gold #D4A72C */
+
+  /* System Borders */
+  --color-border: hsl(214 32% 91%); /* Light Gray Border #E2E8F0 */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Base style assignments */
+@layer base {
+  * {
+    /* Maps border rules directly to the declared color theme configuration */
+    border-color: var(--color-border);
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
 }
