@@ -11,28 +11,28 @@ import {
 const steps = [
   {
     num: "01",
-    icon: <ClipboardList className="h-5 w-5 text-[#D4A72C]" />,
+    icon: <ClipboardList className="h-5 w-5 text-[#D4A72C]" />, // Safe: High contrast inside dark navy box
     title: "Technical Research & Vetting",
     description:
       "Analyzing soil profiles, sub-city structural codes, and material availability frameworks before breaking ground.",
   },
   {
     num: "02",
-    icon: <FileCheck className="h-5 w-5 text-[#D4A72C]" />,
+    icon: <FileCheck className="h-5 w-5 text-[#D4A72C]" />, // Safe: High contrast inside dark navy box
     title: "Structural Allocation",
     description:
       "Drafting precision structural blueprints, reinforced frame casting schedules, and itemized material requirements matrix systems.",
   },
   {
     num: "03",
-    icon: <HardHat className="h-5 w-5 text-[#D4A72C]" />,
+    icon: <HardHat className="h-5 w-5 text-[#D4A72C]" />, // Safe: High contrast inside dark navy box
     title: "Disciplined Staged Build",
     description:
       "Executing foundations, Class C-25 monolithic frame casting, infill masonry blockwork, and multi-tier waterproofing protection.",
   },
   {
     num: "04",
-    icon: <ShieldCheck className="h-5 w-5 text-[#D4A72C]" />,
+    icon: <ShieldCheck className="h-5 w-5 text-[#D4A72C]" />, // Safe: High contrast inside dark navy box
     title: "Quality QA & Calibration",
     description:
       "Running 24-hour flood isolation testing on drainage routes and checking envelope structural lines to clear compliance markers.",
@@ -52,14 +52,16 @@ export default function ProcessSection() {
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
           <div className="mb-4 flex items-center gap-3">
-            <span className="h-px w-8 bg-[#D4A72C]" />
+            <span className="h-px w-8 bg-[#916E13]" />{" "}
+            {/* Fixed: Accessible dark gold border accent line */}
             <span className="text-[10px] font-black uppercase tracking-[0.22em] text-[#64748B]">
               Execution Framework
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-[#0F172A]">
             Our Disciplined Project{" "}
-            <span className="text-[#D4A72C]">Process.</span>
+            <span className="text-[#916E13]">Process.</span>{" "}
+            {/* Fixed: Accessible dark gold text block */}
           </h2>
           <p className="mt-4 text-sm text-[#64748B] max-w-xl leading-relaxed">
             From initial zoning research to finalized structural handovers, we
@@ -73,12 +75,14 @@ export default function ProcessSection() {
           {steps.map((step) => (
             <div
               key={step.num}
-              className="bg-[#F8FAFC] border border-[#E2E8F0] p-6 relative flex flex-col justify-between group hover:border-[#D4A72C] transition-all duration-300 shadow-sm"
+              className="bg-[#F8FAFC] border border-[#E2E8F0] p-6 relative flex flex-col justify-between group hover:border-[#916E13] transition-all duration-300 shadow-sm" // Fixed: Card hover ring uses text-accent-dark
             >
               <div>
                 {/* Step Counter Tag */}
                 <div className="flex items-center justify-between border-b border-[#E2E8F0] pb-4 mb-6">
-                  <span className="text-xs font-mono font-black text-[#D4A72C] tracking-widest">
+                  <span className="text-xs font-mono font-black text-[#916E13] tracking-widest">
+                    {" "}
+                    {/* Fixed: High contrast text parameters */}
                     {step.num}
                   </span>
                   <div className="p-2 bg-[#0F172A] rounded-none border border-[#1E293B]">
@@ -86,7 +90,9 @@ export default function ProcessSection() {
                   </div>
                 </div>
 
-                <h3 className="text-base font-black uppercase tracking-tight text-[#0F172A] group-hover:text-[#D4A72C] transition-colors">
+                <h3 className="text-base font-black uppercase tracking-tight text-[#0F172A] group-hover:text-[#916E13] transition-colors">
+                  {" "}
+                  {/* Fixed: Text transformation interactions */}
                   {step.title}
                 </h3>
                 <p className="text-xs text-[#64748B] mt-3 leading-relaxed">
@@ -97,7 +103,7 @@ export default function ProcessSection() {
               {/* Bottom detail indicator line */}
               <div
                 aria-hidden="true"
-                className="w-full h-1 bg-transparent group-hover:bg-[#D4A72C] transition-all mt-6"
+                className="w-full h-1 bg-transparent group-hover:bg-[#916E13] transition-all mt-6" // Fixed: Accent slider border rules
               />
             </div>
           ))}
