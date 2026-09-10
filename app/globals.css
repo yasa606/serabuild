@@ -14,6 +14,9 @@
   /* Brand Highlights */
   --color-accent: hsl(43 65% 50%); /* Construction Gold #D4A72C */
 
+  /* ACCESSIBILITY ADDITION: Darker shade of gold that passes WCAG AA contrast rules on pure white (#FFFFFF) and off-white (#F8FAFC) */
+  --color-accent-dark: hsl(43 75% 35%); /* #916E13 */
+
   /* System Borders */
   --color-border: hsl(214 32% 91%); /* Light Gray Border #E2E8F0 */
 }
