@@ -31,7 +31,7 @@ const blogPosts = [
     date: "Sep 11, 2026",
     readTime: "8 Min Read",
     category: "Zoning & Permits",
-    image: "/images/Residential Zoning Laws .png",
+    image: "/images/Residential Zoning Laws.png",
   },
   {
     slug: "managing-moisture-addis-ababa-rainy-season",
