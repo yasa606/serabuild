@@ -1,38 +1,36 @@
 // app/construction-cost/page.tsx
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
   Calculator,
   FileSpreadsheet,
   Layers,
-  ShieldCheck,
-  HelpCircle,
   AlertTriangle,
 } from "lucide-react";
 import Disclaimer from "@/components/shared/disclaimer";
 
-export const metadata = {
-  title: "House Construction Cost Addis Ababa | Pricing Estimation Grid",
-  description:
-    "Comprehensive cost modeling framework analyzing residential square meter base rates, structural finishing variables, and material cost factor fluctuations across Addis Ababa, Ethiopia.",
-};
-
 const costMatrix = [
   {
     service: "Full Structural House Construction",
-    rate: "ETB 28,000 - 42,000",
+    rateMin: 28000,
+    rateMax: 42000,
     basis: "Per Square Meter (Built-Up Area)",
     factors: "Excavation, C-25 Frame, Infill Masonry, Base Finishes",
   },
   {
     service: "Premium Residential Renovation",
-    rate: "ETB 12,000 - 22,000",
+    rateMin: 12000,
+    rateMax: 22000,
     basis: "Per Square Meter (Modified Footprint)",
     factors: "Partition Alteration, Utility Retrofits, Premium Finishing",
   },
   {
     service: "Multi-Layer Waterproofing Systems",
-    rate: "ETB 450 - 850",
+    rateMin: 450,
+    rateMax: 850,
     basis: "Per Square Meter (Surface Area)",
     factors: "Primer, 4mm SBS Torched Membrane, Protection Board",
   },
@@ -58,6 +56,21 @@ const volatileFactors = [
 ];
 
 export default function ConstructionCostPage() {
+  const [selectedServiceIndex, setSelectedServiceIndex] = useState(0);
+  const [area, setArea] = useState<number>(150);
+
+  const activeService = costMatrix[selectedServiceIndex];
+  const estimatedMin = activeService.rateMin * area;
+  const estimatedMax = activeService.rateMax * area;
+
+  const formatCurrency = (val: number) => {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "ETB",
+      maximumFractionDigits: 0,
+    }).format(val);
+  };
+
   return (
     <div className="w-full bg-[#F8FAFC] min-h-screen pb-24">
       {/* 1. TECHNICAL HEADLINE BANNER */}
@@ -142,7 +155,8 @@ export default function ConstructionCostPage() {
                         {row.service}
                       </td>
                       <td className="p-4 text-[#D4A72C] font-bold">
-                        {row.rate}
+                        ETB {row.rateMin.toLocaleString()} -{" "}
+                        {row.rateMax.toLocaleString()}
                       </td>
                       <td className="p-4 text-[#64748B]">{row.basis}</td>
                     </tr>
@@ -201,7 +215,7 @@ export default function ConstructionCostPage() {
 
         {/* RIGHT SECTOR (4 Columns): Calculation & Lead Prompts */}
         <div className="lg:col-span-4 space-y-6">
-          {/* Active Callout Block */}
+          {/* Active Interactive Calculator Block */}
           <div className="bg-[#1E293B] border-2 border-[#D4A72C] p-6 sm:p-8 text-white relative shadow-md">
             <div
               aria-hidden="true"
@@ -209,16 +223,66 @@ export default function ConstructionCostPage() {
             />
 
             <h3 className="text-xs font-black uppercase tracking-widest text-[#64748B] flex items-center gap-2 mb-3">
-              <Calculator className="h-4 w-4 text-[#D4A72C]" /> Budget
-              Customization Tool
+              <Calculator className="h-4 w-4 text-[#D4A72C]" /> MVP Cost
+              Calculator
             </h3>
 
-            <p className="text-sm text-[#E2E8F0] leading-relaxed">
-              Every property plan requires localized sub-city assessment, raw
-              metric evaluation, and active foundation parameter choices.
-              Initialize our parsing matrix to input your targeted plot
-              configurations.
+            <p className="text-xs text-[#E2E8F0] leading-relaxed mb-4">
+              Configure parameters below to compute an estimated budget model
+              based on our baseline rates.
             </p>
+
+            <div className="space-y-4">
+              <div>
+                <label className="block text-[10px] font-black uppercase tracking-wider text-[#64748B] mb-1">
+                  Select Service Scope
+                </label>
+                <select
+                  value={selectedServiceIndex}
+                  onChange={(e) =>
+                    setSelectedServiceIndex(Number(e.target.value))
+                  }
+                  className="w-full bg-[#0F172A] border border-[#E2E8F0]/20 text-white text-xs font-mono p-2.5 rounded-none focus:outline-none focus:border-[#D4A72C]"
+                >
+                  {costMatrix.map((item, i) => (
+                    <option key={i} value={i}>
+                      {item.service}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-[10px] font-black uppercase tracking-wider text-[#64748B] mb-1">
+                  Total Area (
+                  {activeService.basis.includes("Surface")
+                    ? "SqM Surface"
+                    : "SqM Built-Up"}
+                  )
+                </label>
+                <input
+                  type="number"
+                  min="1"
+                  max="10000"
+                  value={area}
+                  onChange={(e) => setArea(Math.max(1, Number(e.target.value)))}
+                  className="w-full bg-[#0F172A] border border-[#E2E8F0]/20 text-white text-xs font-mono p-2.5 rounded-none focus:outline-none focus:border-[#D4A72C]"
+                />
+              </div>
+
+              <div className="pt-4 border-t border-[#E2E8F0]/10 bg-[#0F172A] p-4">
+                <span className="block text-[10px] font-black uppercase tracking-widest text-[#64748B] mb-1">
+                  Estimated Cost Range
+                </span>
+                <div className="text-sm sm:text-base font-black font-mono text-[#D4A72C]">
+                  {formatCurrency(estimatedMin)} —{" "}
+                  {formatCurrency(estimatedMax)}
+                </div>
+                <p className="text-[10px] text-[#64748B] mt-1 font-mono">
+                  *Illustrative calculation only.
+                </p>
+              </div>
+            </div>
 
             <div className="mt-6">
               <Link
