@@ -1,189 +1,354 @@
 // app/services/page.tsx
+
 import Link from "next/link";
 import Image from "next/image";
 import {
   ArrowRight,
   Building2,
   Paintbrush,
-  DropletOff,
+  Droplet,
   ShieldCheck,
   CheckCircle2,
+  ClipboardList,
+  Ruler,
+  Hammer,
+  Home,
 } from "lucide-react";
+
 import Disclaimer from "@/components/shared/disclaimer";
 
 export const metadata = {
-  title: "Construction Services Addis Ababa | SeraBuild Hub",
+  title: "Construction Services Addis Ababa | SeraBuild",
   description:
-    "Comprehensive engineering overview modeling residential house construction, structural home renovation, and precision waterproofing frameworks across Addis Ababa, Ethiopia.",
+    "Explore SeraBuild residential construction, house construction, home renovation, waterproofing, and finishing services designed for property owners in Addis Ababa.",
 };
 
 const serviceHubItems = [
   {
     slug: "house-construction",
+    number: "01",
     title: "House Construction",
-    keyword: "house construction Addis Ababa",
-    tagline: "Turnkey Residential Engineering",
+    keyword: "House construction Addis Ababa",
+    tagline: "From Site to Structure",
     description:
-      "Complete building execution from site survey and foundation engineering through framing, masonry blockwork, and professional finish delivery.",
+      "A structured approach to residential house construction, covering project planning, foundation work, structural construction, masonry, and finishing coordination.",
     image: "/images/house_construction.png",
-    icon: <Building2 className="h-6 w-6 text-[#D4A72C]" />,
+    icon: <Building2 className="h-5 w-5" />,
     scope: [
-      "Foundation Excavation & Casting",
-      "Reinforced Frame Systems",
-      "Structural Masonry Infill",
+      "Site & Foundation Work",
+      "Structural Construction",
+      "Masonry & Building Envelope",
+      "Construction Coordination",
     ],
   },
   {
     slug: "home-renovation",
+    number: "02",
     title: "Home Renovation",
-    keyword: "home renovation Addis Ababa",
-    tagline: "Structural Optimization & Upgrades",
+    keyword: "Home renovation Addis Ababa",
+    tagline: "Improve. Modernize. Transform.",
     description:
-      "Modernizing existing residential architecture, optimizing structural load profiles, and managing layout modifications with premium internal finishing.",
+      "Residential renovation planning for homeowners looking to improve existing spaces, modernize layouts, upgrade finishes, or coordinate building services.",
     image: "/images/re.png",
-    icon: <Paintbrush className="h-6 w-6 text-[#D4A72C]" />,
+    icon: <Paintbrush className="h-5 w-5" />,
     scope: [
-      "Spatial Layout Restructuring",
-      "Interior Boundary Modernization",
-      "Electrical & Plumbing Retrofits",
+      "Layout Improvements",
+      "Interior Renovation",
+      "Kitchen & Bathroom Upgrades",
+      "Plumbing & Electrical Coordination",
     ],
   },
   {
     slug: "waterproofing",
-    title: "Waterproofing Systems",
-    keyword: "waterproofing Addis Ababa",
-    tagline: "Advanced Moisture Protection",
+    number: "03",
+    title: "Waterproofing",
+    keyword: "Waterproofing Addis Ababa",
+    tagline: "Protect Your Property",
     description:
-      "Multi-layered defensive membranes engineered to intercept heavy seasonal groundwater infiltration and protect structural foundation configurations.",
+      "Waterproofing solutions focused on identifying moisture problems and selecting appropriate protection for roofs, bathrooms, terraces, foundations, and other vulnerable areas.",
     image: "/images/proofing.png",
-    icon: <DropletOff className="h-6 w-6 text-[#D4A72C]" />,
+    icon: <Droplet className="h-5 w-5" />,
     scope: [
-      "Sub-Grade Foundation Seals",
-      "Elastomeric Roof Coating",
-      "Wet-Area Containment Plastering",
+      "Roof Waterproofing",
+      "Bathroom & Wet Areas",
+      "Terrace Protection",
+      "Foundation Moisture Protection",
     ],
+  },
+];
+
+const processSteps = [
+  {
+    number: "01",
+    icon: <ClipboardList className="h-5 w-5" />,
+    title: "Understand",
+    description:
+      "Define the property, requested service, project objectives, and major requirements.",
+  },
+  {
+    number: "02",
+    icon: <Ruler className="h-5 w-5" />,
+    title: "Assess",
+    description:
+      "Review site conditions, existing work, dimensions, constraints, and potential requirements.",
+  },
+  {
+    number: "03",
+    icon: <Hammer className="h-5 w-5" />,
+    title: "Plan",
+    description:
+      "Organize the scope, materials, sequence, responsibilities, and project considerations.",
+  },
+  {
+    number: "04",
+    icon: <ShieldCheck className="h-5 w-5" />,
+    title: "Execute",
+    description:
+      "Coordinate the work with attention to quality, inspection, communication, and completion.",
   },
 ];
 
 export default function ServicesHubPage() {
   return (
-    <div className="w-full bg-[#F8FAFC] min-h-screen">
-      {/* 1. SECTOR HEADER SECTION */}
-      <section className="relative w-full bg-[#0F172A] py-16 sm:py-20 border-b border-[#E2E8F0]/10 overflow-hidden">
+    <main className="w-full min-h-screen bg-[#F8FAFC]">
+      {/* =========================================================
+          HERO
+      ========================================================== */}
+      <section className="relative overflow-hidden bg-[#0F172A]">
+        {/* Technical background grid */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-[0.02]"
+          className="pointer-events-none absolute inset-0 opacity-[0.025]"
           style={{
-            backgroundImage: `linear-gradient(#FFFFFF 1px, transparent 1px), linear-gradient(90deg, #FFFFFF 1px, transparent 1px)`,
-            backgroundSize: "36px 36px",
+            backgroundImage:
+              "linear-gradient(#FFFFFF 1px, transparent 1px), linear-gradient(90deg, #FFFFFF 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
           }}
         />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-4">
+        {/* Decorative architectural lines */}
+        <div
+          aria-hidden="true"
+          className="absolute right-[8%] top-0 hidden h-full w-px bg-[#D4A72C]/10 lg:block"
+        />
+
+        <div
+          aria-hidden="true"
+          className="absolute right-[8%] top-1/2 hidden h-px w-48 bg-[#D4A72C]/10 lg:block"
+        />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+          <div className="max-w-4xl">
+            {/* Breadcrumb */}
+            <nav
+              aria-label="Breadcrumb"
+              className="mb-7 flex items-center gap-3"
+            >
               <Link
                 href="/"
-                className="text-[10px] font-bold uppercase tracking-wider text-[#64748B] hover:text-[#D4A72C]"
+                className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#94A3B8] transition-colors hover:text-[#D4A72C]"
               >
                 Home
               </Link>
-              <span className="text-[#64748B] text-xs">/</span>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#D4A72C]">
+
+              <span className="text-[#475569]">/</span>
+
+              <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#D4A72C]">
                 Services
               </span>
-            </div>
+            </nav>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase text-white tracking-tight leading-[0.95]">
-              Core Structural <br />
-              <span className="text-[#D4A72C]">Construction Services.</span>
-            </h1>
+            <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
+              {/* Heading */}
+              <div className="lg:col-span-8">
+                <div className="mb-5 flex items-center gap-3">
+                  <span className="h-px w-10 bg-[#D4A72C]" />
 
-            <div className="mt-6 flex items-start gap-4 border-l-2 border-[#D4A72C] pl-4">
-              <p className="text-sm text-[#E2E8F0] leading-relaxed max-w-xl">
-                Rigorous operational blueprints configured for Ethiopian
-                environmental, municipal, and structural logistics. Every
-                service links back to our standardized analysis tools.
-              </p>
+                  <span className="text-[10px] font-black uppercase tracking-[0.22em] text-[#D4A72C]">
+                    SeraBuild · Addis Ababa
+                  </span>
+                </div>
+
+                <h1 className="text-4xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
+                  Construction Services
+                  <br />
+                  <span className="text-[#D4A72C]">
+                    Built Around Your Property.
+                  </span>
+                </h1>
+
+                <p className="mt-7 max-w-2xl text-sm leading-7 text-[#CBD5E1] sm:text-base">
+                  Explore residential construction, home renovation,
+                  waterproofing, and finishing services structured for property
+                  owners in Addis Ababa.
+                </p>
+              </div>
+
+              {/* Hero side information */}
+              <div className="lg:col-span-4 lg:flex lg:justify-end">
+                <div className="border border-white/10 bg-white/[0.03] p-5 backdrop-blur-sm">
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-[#D4A72C]/40 bg-[#D4A72C]/10">
+                      <Home className="h-5 w-5 text-[#D4A72C]" />
+                    </div>
+
+                    <div>
+                      <p className="text-[9px] font-black uppercase tracking-[0.18em] text-[#64748B]">
+                        Residential Focus
+                      </p>
+
+                      <p className="mt-1 text-sm font-bold text-white">
+                        Build · Renovate · Protect
+                      </p>
+
+                      <p className="mt-2 text-[11px] leading-5 text-[#94A3B8]">
+                        Clear service scopes for residential property work.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. DYNAMIC MATRICES SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 space-y-16">
-        <Disclaimer message="Case Validation Framework: Services listed represent structural execution capability profiles modeled explicitly for residential performance tracking in Addis Ababa." />
+      {/* =========================================================
+          INTRO
+      ========================================================== */}
+      <section className="mx-auto max-w-7xl px-4 pt-12 sm:px-6 sm:pt-16 lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-8">
+            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#D4A72C]">
+              Our Service Structure
+            </p>
 
-        <div className="grid grid-cols-1 gap-12">
-          {serviceHubItems.map((service) => (
+            <h2 className="mt-2 text-2xl font-black uppercase tracking-tight text-[#0F172A] sm:text-3xl">
+              One Residential Focus.
+              <br />
+              Multiple Construction Needs.
+            </h2>
+          </div>
+
+          <p className="text-sm leading-7 text-[#64748B] lg:col-span-4">
+            From building a new house to improving an existing property or
+            addressing water-related problems, each service is organized around
+            a clear scope and practical project process.
+          </p>
+        </div>
+      </section>
+
+      {/* =========================================================
+          SERVICES
+      ========================================================== */}
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div className="space-y-8">
+          {serviceHubItems.map((service, index) => (
             <article
               key={service.slug}
-              className="bg-white border border-[#E2E8F0] shadow-sm grid grid-cols-1 lg:grid-cols-12 overflow-hidden relative group hover:border-[#D4A72C] transition-all duration-300"
+              className="group overflow-hidden border border-[#E2E8F0] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#D4A72C]/60 hover:shadow-lg"
             >
-              {/* Left Column Graphic */}
-              <div className="relative lg:col-span-5 min-h-[260px] sm:min-h-[340px] bg-[#1E293B]">
-                <Image
-                  src={service.image}
-                  alt={`${service.title} services provided by residential engineering contractor in Addis Ababa`}
-                  fill
-                  sizes="(max-w-1024px) 100vw, 40vw"
-                  className="object-cover object-center"
-                />
-              </div>
+              <div className="grid lg:grid-cols-12">
+                {/* IMAGE */}
+                <div
+                  className={`relative min-h-[280px] overflow-hidden bg-[#1E293B] sm:min-h-[360px] lg:col-span-5 ${
+                    index % 2 === 1 ? "lg:order-2" : ""
+                  }`}
+                >
+                  <Image
+                    src={service.image}
+                    alt={`${service.title} in Addis Ababa`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
 
-              {/* Right Column Specifications */}
-              <div className="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-[#0F172A] text-white flex-shrink-0">
-                      {service.icon}
-                    </div>
-                    <div>
-                      <span className="block text-[10px] font-mono text-[#64748B] bg-[#F8FAFC] px-2 py-0.5 border border-[#E2E8F0]">
-                        Keyword Index: {service.keyword}
-                      </span>
-                    </div>
+                  {/* Image overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/70 via-transparent to-transparent" />
+
+                  {/* Number */}
+                  <div className="absolute left-5 top-5 flex h-10 w-10 items-center justify-center border border-white/20 bg-[#0F172A]/80 backdrop-blur-sm">
+                    <span className="font-mono text-[10px] font-bold text-[#D4A72C]">
+                      {service.number}
+                    </span>
                   </div>
 
-                  <h2 className="text-2xl font-black uppercase text-[#0F172A] tracking-tight">
-                    {service.title}
-                  </h2>
-                  <p className="text-xs font-medium text-[#D4A72C] uppercase tracking-wider font-mono mt-0.5">
-                    {service.tagline}
-                  </p>
-
-                  <p className="mt-4 text-sm text-[#111827] leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  <div className="mt-6 pt-4 border-t border-[#E2E8F0]">
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                      {service.scope.map((item, index) => (
-                        <li
-                          key={index}
-                          className="flex items-center gap-2 text-xs text-[#64748B] font-mono"
-                        >
-                          <CheckCircle2 className="h-3.5 w-3.5 text-[#D4A72C] shrink-0" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
+                  {/* Image label */}
+                  <div className="absolute bottom-5 left-5">
+                    <span className="border border-white/20 bg-[#0F172A]/80 px-3 py-1.5 text-[9px] font-black uppercase tracking-[0.16em] text-white backdrop-blur-sm">
+                      Addis Ababa · Residential
+                    </span>
                   </div>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-[#E2E8F0] flex flex-col sm:flex-row gap-4">
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="inline-flex h-11 items-center justify-center border-2 border-[#0F172A] text-[#0F172A] font-bold uppercase tracking-wider text-[10px] px-6 hover:bg-[#F8FAFC] transition-all text-center"
-                  >
-                    Technical Scope Details
-                  </Link>
-                  <Link
-                    href="/request-quote"
-                    className="inline-flex h-11 items-center justify-center bg-[#D4A72C] border-2 border-[#D4A72C] text-white font-bold uppercase tracking-wider text-[10px] px-6 hover:bg-[#b88e21] hover:border-[#b88e21] transition-all text-center gap-2"
-                  >
-                    Request Pricing Model <ArrowRight className="h-4 w-4" />
-                  </Link>
+                {/* CONTENT */}
+                <div
+                  className={`flex flex-col justify-between p-6 sm:p-9 lg:col-span-7 lg:p-10 ${
+                    index % 2 === 1 ? "lg:order-1" : ""
+                  }`}
+                >
+                  <div>
+                    {/* Service icon + keyword */}
+                    <div className="flex flex-wrap items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center bg-[#0F172A] text-[#D4A72C]">
+                        {service.icon}
+                      </div>
+
+                      <span className="border border-[#E2E8F0] bg-[#F8FAFC] px-3 py-1.5 font-mono text-[9px] uppercase tracking-wider text-[#64748B]">
+                        {service.keyword}
+                      </span>
+                    </div>
+
+                    <h2 className="mt-6 text-2xl font-black uppercase tracking-tight text-[#0F172A] sm:text-3xl">
+                      {service.title}
+                    </h2>
+
+                    <p className="mt-1 text-[10px] font-black uppercase tracking-[0.18em] text-[#D4A72C]">
+                      {service.tagline}
+                    </p>
+
+                    <p className="mt-5 max-w-2xl text-sm leading-7 text-[#475569]">
+                      {service.description}
+                    </p>
+
+                    {/* Scope */}
+                    <div className="mt-7 border-t border-[#E2E8F0] pt-6">
+                      <p className="mb-3 text-[9px] font-black uppercase tracking-[0.18em] text-[#64748B]">
+                        Typical Scope
+                      </p>
+
+                      <ul className="grid gap-3 sm:grid-cols-2">
+                        {service.scope.map((item) => (
+                          <li
+                            key={item}
+                            className="flex items-center gap-2 text-xs text-[#334155]"
+                          >
+                            <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-[#D4A72C]" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="mt-8 flex flex-col gap-3 border-t border-[#E2E8F0] pt-6 sm:flex-row">
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className="group/button inline-flex h-11 items-center justify-center gap-2 border-2 border-[#0F172A] px-6 text-[10px] font-black uppercase tracking-[0.14em] text-[#0F172A] transition-all hover:bg-[#0F172A] hover:text-white"
+                    >
+                      Explore Service
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/button:translate-x-1" />
+                    </Link>
+
+                    <Link
+                      href="/request-quote"
+                      className="inline-flex h-11 items-center justify-center gap-2 bg-[#D4A72C] px-6 text-[10px] font-black uppercase tracking-[0.14em] text-white transition-colors hover:bg-[#B88E21]"
+                    >
+                      Request a Quote
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </article>
@@ -191,28 +356,199 @@ export default function ServicesHubPage() {
         </div>
       </section>
 
-      {/* 3. LOWER SECTION BANNER */}
-      <section className="bg-[#1E293B] text-white border-t border-[#E2E8F0]/10 py-16 text-center">
-        <div className="max-w-3xl mx-auto px-4">
-          <ShieldCheck className="h-8 w-8 text-[#D4A72C] mx-auto mb-4" />
-          <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">
-            Structured Cost Parameter Estimation
-          </h2>
-          <p className="mt-2 text-xs text-[#64748B] font-mono max-w-xl mx-auto">
-            Need an itemized material and logistical calculation? Explore our
-            structural cost matrices configured to map building expenses
-            efficiently.
-          </p>
-          <div className="mt-6">
-            <Link
-              href="/construction-cost"
-              className="inline-flex h-10 items-center justify-center bg-[#0F172A] border border-[#E2E8F0]/20 text-white font-bold uppercase tracking-widest text-[10px] px-6 hover:bg-[#0F172A]/80 transition-all"
-            >
-              Launch Cost Guide
-            </Link>
+      {/* =========================================================
+          PROCESS
+      ========================================================== */}
+      <section className="border-y border-[#E2E8F0] bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-12">
+            {/* Intro */}
+            <div className="lg:col-span-4">
+              <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#D4A72C]">
+                Our Approach
+              </p>
+
+              <h2 className="mt-2 text-2xl font-black uppercase leading-tight tracking-tight text-[#0F172A] sm:text-3xl">
+                A Clearer
+                <br />
+                Construction Process.
+              </h2>
+
+              <p className="mt-5 text-sm leading-7 text-[#64748B]">
+                Good construction starts before physical work begins. A
+                structured process helps define requirements, identify
+                constraints, and organize the work that follows.
+              </p>
+
+              <Link
+                href="/process"
+                className="group mt-7 inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.14em] text-[#0F172A] transition-colors hover:text-[#D4A72C]"
+              >
+                See Full Process
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+
+            {/* Steps */}
+            <div className="grid gap-px overflow-hidden border border-[#E2E8F0] bg-[#E2E8F0] sm:grid-cols-2 lg:col-span-8">
+              {processSteps.map((step) => (
+                <div
+                  key={step.number}
+                  className="bg-[#F8FAFC] p-6 transition-colors hover:bg-white sm:p-7"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex h-10 w-10 items-center justify-center border border-[#D4A72C]/30 bg-[#FFFBEB] text-[#D4A72C]">
+                      {step.icon}
+                    </div>
+
+                    <span className="font-mono text-[10px] font-bold text-[#CBD5E1]">
+                      {step.number}
+                    </span>
+                  </div>
+
+                  <h3 className="mt-6 text-xs font-black uppercase tracking-[0.14em] text-[#0F172A]">
+                    {step.title}
+                  </h3>
+
+                  <p className="mt-3 text-xs leading-6 text-[#64748B]">
+                    {step.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
-    </div>
+
+      {/* =========================================================
+          SERVICE DISCOVERY / SEO SUPPORT
+      ========================================================== */}
+      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+        <div className="grid gap-6 md:grid-cols-3">
+          <Link
+            href="/construction-cost"
+            className="group border border-[#E2E8F0] bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-[#D4A72C]"
+          >
+            <span className="text-[9px] font-black uppercase tracking-[0.18em] text-[#D4A72C]">
+              Planning Resource
+            </span>
+
+            <h3 className="mt-2 text-sm font-black uppercase tracking-tight text-[#0F172A]">
+              Construction Cost Guide
+            </h3>
+
+            <p className="mt-3 text-xs leading-6 text-[#64748B]">
+              Explore the illustrative cost model and understand the factors
+              that can influence a construction budget.
+            </p>
+
+            <span className="mt-5 inline-flex items-center gap-2 text-[9px] font-black uppercase tracking-wider text-[#0F172A]">
+              Explore Guide
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+            </span>
+          </Link>
+
+          <Link
+            href="/projects"
+            className="group border border-[#E2E8F0] bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-[#D4A72C]"
+          >
+            <span className="text-[9px] font-black uppercase tracking-[0.18em] text-[#D4A72C]">
+              Project Concepts
+            </span>
+
+            <h3 className="mt-2 text-sm font-black uppercase tracking-tight text-[#0F172A]">
+              Explore Projects
+            </h3>
+
+            <p className="mt-3 text-xs leading-6 text-[#64748B]">
+              Review conceptual residential construction and renovation examples
+              used within the SeraBuild project.
+            </p>
+
+            <span className="mt-5 inline-flex items-center gap-2 text-[9px] font-black uppercase tracking-wider text-[#0F172A]">
+              View Projects
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+            </span>
+          </Link>
+
+          <Link
+            href="/blog"
+            className="group border border-[#E2E8F0] bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-[#D4A72C]"
+          >
+            <span className="text-[9px] font-black uppercase tracking-[0.18em] text-[#D4A72C]">
+              Knowledge
+            </span>
+
+            <h3 className="mt-2 text-sm font-black uppercase tracking-tight text-[#0F172A]">
+              Construction Resources
+            </h3>
+
+            <p className="mt-3 text-xs leading-6 text-[#64748B]">
+              Learn about contractor selection, residential construction,
+              renovation planning, and property improvement.
+            </p>
+
+            <span className="mt-5 inline-flex items-center gap-2 text-[9px] font-black uppercase tracking-wider text-[#0F172A]">
+              Read Resources
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+            </span>
+          </Link>
+        </div>
+      </section>
+
+      {/* =========================================================
+          TRANSPARENCY
+      ========================================================== */}
+      <section className="mx-auto max-w-7xl px-4 pb-14 sm:px-6 sm:pb-20 lg:px-8">
+        <Disclaimer message="SeraBuild is a fictional portfolio/demo project. The services, project concepts, pricing examples, and business information shown on this website are used to demonstrate website development, SEO implementation, UX, and digital marketing execution. They should not be interpreted as live commercial services, real client results, testimonials, certifications, or guaranteed pricing." />
+      </section>
+
+      {/* =========================================================
+          FINAL CTA
+      ========================================================== */}
+      <section className="bg-[#1E293B]">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+          <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-center">
+            <div className="max-w-2xl">
+              <div className="mb-3 flex items-center gap-3">
+                <span className="h-px w-8 bg-[#D4A72C]" />
+
+                <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#D4A72C]">
+                  Start Planning
+                </span>
+              </div>
+
+              <h2 className="text-2xl font-black uppercase tracking-tight text-white sm:text-3xl">
+                Have a Construction or
+                <br />
+                <span className="text-[#D4A72C]">Renovation Project?</span>
+              </h2>
+
+              <p className="mt-3 text-sm leading-6 text-[#94A3B8]">
+                Start by describing the property and the work you are
+                considering.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/contact"
+                className="inline-flex h-11 items-center justify-center border border-white/20 px-6 text-[10px] font-black uppercase tracking-[0.14em] text-white transition-colors hover:border-[#D4A72C] hover:text-[#D4A72C]"
+              >
+                Contact
+              </Link>
+
+              <Link
+                href="/request-quote"
+                className="inline-flex h-11 items-center justify-center gap-2 bg-[#D4A72C] px-6 text-[10px] font-black uppercase tracking-[0.14em] text-white transition-colors hover:bg-[#B88E21]"
+              >
+                Request a Quote
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
