@@ -28,7 +28,6 @@ const serviceHubItems = [
     slug: "house-construction",
     number: "01",
     title: "House Construction",
-    keyword: "House construction Addis Ababa",
     tagline: "From Site to Structure",
     description:
       "A structured approach to residential house construction, covering project planning, foundation work, structural construction, masonry, and finishing coordination.",
@@ -45,7 +44,6 @@ const serviceHubItems = [
     slug: "home-renovation",
     number: "02",
     title: "Home Renovation",
-    keyword: "Home renovation Addis Ababa",
     tagline: "Improve. Modernize. Transform.",
     description:
       "Residential renovation planning for homeowners looking to improve existing spaces, modernize layouts, upgrade finishes, or coordinate building services.",
@@ -62,7 +60,6 @@ const serviceHubItems = [
     slug: "waterproofing",
     number: "03",
     title: "Waterproofing",
-    keyword: "Waterproofing Addis Ababa",
     tagline: "Protect Your Property",
     description:
       "Waterproofing solutions focused on identifying moisture problems and selecting appropriate protection for roofs, bathrooms, terraces, foundations, and other vulnerable areas.",
@@ -110,12 +107,12 @@ const processSteps = [
 
 export default function ServicesHubPage() {
   return (
-    <main className="w-full min-h-screen bg-[#F8FAFC]">
+    <main className="min-h-screen w-full bg-[#F8FAFC]">
       {/* =========================================================
           HERO
       ========================================================== */}
       <section className="relative overflow-hidden bg-[#0F172A]">
-        {/* Technical background grid */}
+        {/* Subtle architectural grid */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 opacity-[0.025]"
@@ -220,7 +217,7 @@ export default function ServicesHubPage() {
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
             <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#D4A72C]">
-              Our Service Structure
+              Our Services
             </p>
 
             <h2 className="mt-2 text-2xl font-black uppercase tracking-tight text-[#0F172A] sm:text-3xl">
@@ -288,15 +285,11 @@ export default function ServicesHubPage() {
                   }`}
                 >
                   <div>
-                    {/* Service icon + keyword */}
-                    <div className="flex flex-wrap items-center gap-3">
+                    {/* Service icon */}
+                    <div className="flex items-center">
                       <div className="flex h-10 w-10 items-center justify-center bg-[#0F172A] text-[#D4A72C]">
                         {service.icon}
                       </div>
-
-                      <span className="border border-[#E2E8F0] bg-[#F8FAFC] px-3 py-1.5 font-mono text-[9px] uppercase tracking-wider text-[#64748B]">
-                        {service.keyword}
-                      </span>
                     </div>
 
                     <h2 className="mt-6 text-2xl font-black uppercase tracking-tight text-[#0F172A] sm:text-3xl">
@@ -314,7 +307,7 @@ export default function ServicesHubPage() {
                     {/* Scope */}
                     <div className="mt-7 border-t border-[#E2E8F0] pt-6">
                       <p className="mb-3 text-[9px] font-black uppercase tracking-[0.18em] text-[#64748B]">
-                        Typical Scope
+                        What We Can Help With
                       </p>
 
                       <ul className="grid gap-3 sm:grid-cols-2">
@@ -421,10 +414,11 @@ export default function ServicesHubPage() {
       </section>
 
       {/* =========================================================
-          SERVICE DISCOVERY / SEO SUPPORT
+          EXPLORE MORE
       ========================================================== */}
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
         <div className="grid gap-6 md:grid-cols-3">
+          {/* Cost Guide */}
           <Link
             href="/construction-cost"
             className="group border border-[#E2E8F0] bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-[#D4A72C]"
@@ -448,6 +442,7 @@ export default function ServicesHubPage() {
             </span>
           </Link>
 
+          {/* Projects */}
           <Link
             href="/projects"
             className="group border border-[#E2E8F0] bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-[#D4A72C]"
@@ -471,6 +466,7 @@ export default function ServicesHubPage() {
             </span>
           </Link>
 
+          {/* Blog */}
           <Link
             href="/blog"
             className="group border border-[#E2E8F0] bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-[#D4A72C]"
@@ -480,7 +476,7 @@ export default function ServicesHubPage() {
             </span>
 
             <h3 className="mt-2 text-sm font-black uppercase tracking-tight text-[#0F172A]">
-              Construction Resources
+              Construction Guides
             </h3>
 
             <p className="mt-3 text-xs leading-6 text-[#64748B]">
@@ -489,7 +485,7 @@ export default function ServicesHubPage() {
             </p>
 
             <span className="mt-5 inline-flex items-center gap-2 text-[9px] font-black uppercase tracking-wider text-[#0F172A]">
-              Read Resources
+              Read Guides
               <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
             </span>
           </Link>
