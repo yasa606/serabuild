@@ -20,7 +20,7 @@ const blogPosts = [
     date: "Sep 10, 2026",
     readTime: "6 Min Read",
     category: "Regulatory & Vetting",
-    image: "/images/blog-contractor-guide.jpg",
+    image: "/images/How to Choose.png",
   },
   {
     slug: "understanding-residential-zoning-addis-ababa",
@@ -31,7 +31,7 @@ const blogPosts = [
     date: "Sep 11, 2026",
     readTime: "8 Min Read",
     category: "Zoning & Permits",
-    image: "/images/blog-zoning.jpg",
+    image: "/images/Residential Zoning Laws .png",
   },
   {
     slug: "managing-moisture-addis-ababa-rainy-season",
@@ -42,7 +42,7 @@ const blogPosts = [
     date: "Sep 11, 2026",
     readTime: "5 Min Read",
     category: "Structural Engineering",
-    image: "/images/blog-moisture.jpg",
+    image: "/images/Moisture Risks During the Ethiopian Rainy.png",
   },
 ];
 

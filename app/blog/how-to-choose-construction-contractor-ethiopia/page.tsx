@@ -74,7 +74,7 @@ export default function ContractorGuidePage() {
         {/* Full Exposure Unshaded Editorial Feature Image Asset */}
         <div className="relative w-full h-70 sm:h-100 border-4 sm:border-8 border-[#D4A72C] shadow-xl bg-[#1E293B] overflow-hidden">
           <Image
-            src="/images/blog-contractor-guide.jpg"
+            src="/images/How to Choose.png"
             alt="Vetting and contracting professional construction services across Addis Ababa architectural sectors"
             fill
             priority

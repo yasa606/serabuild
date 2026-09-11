@@ -41,7 +41,7 @@ export default function MoistureManagementPage() {
       <div className="max-w-4xl mx-auto px-4 mt-12 space-y-8">
         <div className="relative w-full h-70 sm:h-100 border-4 sm:border-8 border-[#D4A72C] shadow-xl overflow-hidden bg-[#1E293B]">
           <Image
-            src="/images/blog-moisture.jpg"
+            src="/images/Moisture Risks During the Ethiopian Rainy.png"
             alt="Moisture insulation management and structural waterproofing layers"
             fill
             className="object-cover"
