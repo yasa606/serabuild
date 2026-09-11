@@ -95,16 +95,14 @@ export default function RequestQuotePage() {
                   <Mail className="h-4 w-4 shrink-0 text-[#D4A72C]" />
 
                   <span className="text-sm text-[#CBD5E1]">
-                    your-email@example.com
+                    yassermuna01@gmail.com
                   </span>
                 </div>
 
                 <div className="flex items-center gap-3">
                   <Phone className="h-4 w-4 shrink-0 text-[#D4A72C]" />
 
-                  <span className="text-sm text-[#CBD5E1]">
-                    +251 XXX XXX XXX
-                  </span>
+                  <span className="text-sm text-[#CBD5E1]">+251 973415854</span>
                 </div>
 
                 <div className="flex items-center gap-3">
